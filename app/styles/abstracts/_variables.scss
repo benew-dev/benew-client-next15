@@ -26,10 +26,14 @@ $background-color-light: color.adjust($background-color, $lightness: 10%);
 // POLICES - SYSTÈME 3 POLICES THÈME SPATIAL 🚀
 // =============================
 
-// Polices spécialisées selon usage - NOUVELLES POLICES SPATIALES
-$font-family-parallax: 'Orbitron', sans-serif; // Titres parallax - effet spatial fort
-$font-family-ui: 'Exo 2', sans-serif; // Titres, liens, boutons, UI - moderne
-$font-family-content: 'Inter', sans-serif; // Textes, paragraphes, contenu - lisible
+// ✅ NOUVELLE HIÉRARCHIE DES POLICES
+$font-family-display:
+  'Orbitron', sans-serif; // Tous les titres (h1-h6) + éléments importants
+$font-family-ui: 'Exo 2', sans-serif; // Navigation, boutons, liens
+$font-family-content: 'Inter', sans-serif; // Textes, paragraphes, contenu
+
+// ⚠️ RÉTROCOMPATIBILITÉ - Mapping vers l'ancien système
+$font-family-parallax: $font-family-display; // Alias pour parallax (Orbitron)
 
 // =============================
 // CSS CUSTOM PROPERTIES (Runtime)
@@ -53,22 +57,25 @@ $font-family-content: 'Inter', sans-serif; // Textes, paragraphes, contenu - lis
   --text-color-muted: #{$text-color-muted};
   --background-color-light: #{$background-color-light};
 
-  // Polices spécialisées
-  --font-parallax: #{$font-family-parallax};
+  // Polices spécialisées - NOUVELLE STRUCTURE
+  --font-display: #{$font-family-display};
   --font-ui: #{$font-family-ui};
   --font-content: #{$font-family-content};
+
+  // Rétrocompatibilité
+  --font-parallax: #{$font-family-parallax};
 }
 
 // =============================
 // FONCTIONS UTILITAIRES POUR POLICES
 // =============================
 @function font-family($type) {
-  @if $type == 'parallax' {
-    @return $font-family-parallax;
+  @if $type == 'display' or $type == 'parallax' {
+    @return $font-family-display; // Orbitron pour tous les titres
   } @else if $type == 'ui' {
-    @return $font-family-ui;
+    @return $font-family-ui; // Exo 2 pour UI
   } @else if $type == 'content' {
-    @return $font-family-content;
+    @return $font-family-content; // Inter pour contenu
   }
   @return $font-family-content; // fallback sur Inter
 }
