@@ -1,52 +1,22 @@
-// styles/base/_global.scss
+// app/styles/base/_global.scss
 @use '../abstracts' as *;
 
-// Import des polices
-@import url('https://fonts.googleapis.com/css2?family=Sansation:wght@400&display=swap');
+// =============================
+// IMPORT DES POLICES GOOGLE FONTS - THÈME SPATIAL 🚀
+// =============================
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-// Rint Basic - seulement TTF
-@font-face {
-  font-family: 'Rint Basic';
-  src: url('/fonts/rint-basic/RintBasic-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+// =============================
+// SUPPRESSION DES ANCIENNES @font-face
+// =============================
+// ❌ Rint Basic - SUPPRIMÉ
+// ❌ Trench - SUPPRIMÉ
+// ❌ Tycho - SUPPRIMÉ
+// ❌ Sansation - SUPPRIMÉ (remplacé par Inter)
 
-@font-face {
-  font-family: 'Rint Basic';
-  src: url('/fonts/rint-basic/RintBasic-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Trench';
-  src: url('/fonts/trench/TrenchThin-16R0.otf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Trench';
-  src: url('/fonts/trench/TrenchThin-aZ1J.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-// Tycho - seulement TTF
-@font-face {
-  font-family: 'Tycho';
-  src: url('/fonts/tycho/Tycho-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-// Le reste reste identique...
+// =============================
+// CONFIGURATION HTML/BODY
+// =============================
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -56,37 +26,41 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: font-family('content'); // Sansation par défaut
+  font-family: font-family('content'); // Inter par défaut
   font-weight: 400;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-// Titres, liens, boutons = Tycho
+// =============================
+// ATTRIBUTION DES POLICES PAR ÉLÉMENT
+// =============================
+
+// Titres, liens, boutons = Exo 2
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: font-family('ui'); // Tycho
-  font-weight: 400;
+  font-family: font-family('ui'); // Exo 2
+  font-weight: 600; // SemiBold pour les titres
 }
 
 a,
 .link {
-  font-family: font-family('ui'); // Tycho
+  font-family: font-family('ui'); // Exo 2
   font-weight: 400;
 }
 
 button,
 .button,
 .btn {
-  font-family: font-family('ui'); // Tycho
-  font-weight: 400;
+  font-family: font-family('ui'); // Exo 2
+  font-weight: 500; // Medium pour les boutons
 }
 
-// Navigation = Tycho
+// Navigation = Exo 2
 nav,
 .nav,
 .navbar,
@@ -100,7 +74,7 @@ nav,
   }
 }
 
-// Contenu = Sansation (déjà par défaut)
+// Contenu = Inter (déjà par défaut)
 p,
 span,
 div,
@@ -111,19 +85,25 @@ th {
   font-weight: 400;
 }
 
-// Classes utilitaires
+// =============================
+// CLASSES UTILITAIRES
+// =============================
 .font-parallax {
-  font-family: font-family('parallax') !important;
+  font-family: font-family('parallax') !important; // Orbitron
+  font-weight: 700; // Bold par défaut pour impact
 }
 
 .font-ui {
-  font-family: font-family('ui') !important;
+  font-family: font-family('ui') !important; // Exo 2
 }
 
 .font-content {
-  font-family: font-family('content') !important;
+  font-family: font-family('content') !important; // Inter
 }
 
+// =============================
+// STYLES GLOBAUX
+// =============================
 body {
   background-color: css-var(background-color);
   color: css-var(text-color-muted);

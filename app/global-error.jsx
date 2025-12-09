@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { captureException } from '@/instrumentation';
 import './styles/global-error.scss';
 
 /**
@@ -13,25 +12,25 @@ export default function GlobalError({ error, reset }) {
   useEffect(() => {
     // Capture dans Sentry avec contexte complet
     if (error) {
-      captureException(error, {
-        tags: {
-          component: 'global_error_boundary',
-          error_type: 'unhandled_global',
-          severity: 'critical',
-        },
-        level: 'error',
-        extra: {
-          errorName: error?.name || 'Unknown',
-          errorMessage: error?.message || 'No message',
-          errorStack: error?.stack?.substring(0, 500),
-          timestamp: new Date().toISOString(),
-          userAgent:
-            typeof window !== 'undefined'
-              ? window.navigator.userAgent
-              : 'unknown',
-          url: typeof window !== 'undefined' ? window.location.href : 'unknown',
-        },
-      });
+      // captureException(error, {
+      //   tags: {
+      //     component: 'global_error_boundary',
+      //     error_type: 'unhandled_global',
+      //     severity: 'critical',
+      //   },
+      //   level: 'error',
+      //   extra: {
+      //     errorName: error?.name || 'Unknown',
+      //     errorMessage: error?.message || 'No message',
+      //     errorStack: error?.stack?.substring(0, 500),
+      //     timestamp: new Date().toISOString(),
+      //     userAgent:
+      //       typeof window !== 'undefined'
+      //         ? window.navigator.userAgent
+      //         : 'unknown',
+      //     url: typeof window !== 'undefined' ? window.location.href : 'unknown',
+      //   },
+      // });
 
       // Log en console pour debug (seulement en dev)
       if (process.env.NODE_ENV === 'development') {

@@ -1,6 +1,4 @@
-// styles/abstracts/_variables.scss
-// Variables extraites de app/app.scss
-
+// app/styles/abstracts/_variables.scss
 @use 'sass:color';
 
 // =============================
@@ -25,13 +23,13 @@ $text-color-muted: rgba($text-color, 0.7);
 $background-color-light: color.adjust($background-color, $lightness: 10%);
 
 // =============================
-// POLICES - SYSTÈME 3 POLICES SPÉCIALISÉES
+// POLICES - SYSTÈME 3 POLICES THÈME SPATIAL 🚀
 // =============================
 
-// Polices spécialisées selon usage
-$font-family-parallax: 'Rint Basic', serif; // Uniquement pour parallax
-$font-family-ui: 'Trench', sans-serif; // Titres, liens, boutons, UI
-$font-family-content: 'Sansation', sans-serif; // Textes, paragraphes, contenu
+// Polices spécialisées selon usage - NOUVELLES POLICES SPATIALES
+$font-family-parallax: 'Orbitron', sans-serif; // Titres parallax - effet spatial fort
+$font-family-ui: 'Exo 2', sans-serif; // Titres, liens, boutons, UI - moderne
+$font-family-content: 'Inter', sans-serif; // Textes, paragraphes, contenu - lisible
 
 // =============================
 // CSS CUSTOM PROPERTIES (Runtime)
@@ -72,7 +70,7 @@ $font-family-content: 'Sansation', sans-serif; // Textes, paragraphes, contenu
   } @else if $type == 'content' {
     @return $font-family-content;
   }
-  @return $font-family-content; // fallback sur Sansation
+  @return $font-family-content; // fallback sur Inter
 }
 
 // =============================
