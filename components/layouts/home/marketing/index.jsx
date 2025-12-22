@@ -9,8 +9,8 @@ const MarketingHome = () => {
 
   const handleBlogClick = () => {
     // Force un rechargement complet de la page
-    router.push('/blog');
-    router.refresh(); // ✅ Force le refresh
+    // router.push('');
+    // router.refresh(); // ✅ Force le refresh
   };
 
   return (
